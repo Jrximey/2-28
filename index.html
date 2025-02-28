@@ -20,9 +20,9 @@
             height: 100vh;
             overflow: hidden;
         }
+
         /* 时钟样式 */
         .clock {
-            position: relative; /* 添加相对定位，以便小球绝对定位 */
             background-color: rgba(255, 255, 255, 0.8);
             border: 1px solid rgba(219, 219, 219, 0.8);
             border-radius: 8px;
@@ -33,24 +33,25 @@
             color: #262626;
             margin-bottom: 20px;
             transition: transform 0.2s ease-in-out;
+            position: relative;
         }
 
         .clock:active {
             transform: rotate(-5deg) scale(0.98);
         }
 
-        /* 小球样式 */
-        .ball {
+        /* Q弹小球球样式 */
+        .bouncing-ball {
             position: absolute;
-            top: -60px; /* 调整小球的位置，使其在时钟上方 */
+            top: -40px; /* 小球位于时钟上方 */
             left: 50%;
             transform: translateX(-50%);
-            width: 60px; /* 调整小球的大小 */
-            height: 60px;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
             border-radius: 50%;
-            background: linear-gradient(135deg, rgba(255, 230, 230, 0.7), rgba(230, 245, 255, 0.7)); /* 半透明渐变 */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            animation: bounce 2s infinite ease-in-out; /* 添加弹跳动画 */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: bounce 1.5s infinite ease-in-out;
         }
 
         @keyframes bounce {
@@ -58,7 +59,7 @@
                 transform: translateX(-50%) translateY(0);
             }
             50% {
-                transform: translateX(-50%) translateY(-10px);
+                transform: translateX(-50%) translateY(-20px);
             }
         }
 
@@ -173,17 +174,21 @@
 </head>
 <body>
 
+    <!-- 动态粒子背景 -->
     <div class="particles" id="particles"></div>
 
+    <!-- 音乐按钮 -->
     <div class="music-button" id="musicButton">
         <span class="music-icon" id="musicIcon">▶</span>
     </div>
 
+    <!-- 数字时钟 -->
     <div class="clock" id="clock">
-        <div class="ball"></div>
+        <div class="bouncing-ball"></div> <!-- Q弹小球球 -->
         00:00:00
     </div>
 
+    <!-- 导航栏 -->
     <div class="navbar">
         <a href="https://m.sunnafh.com/">视讯酱</a>
         <a href="https://www.kkys02.com/">可可酱</a>
@@ -191,6 +196,7 @@
         <a href="https://jrximey.github.io/2025-2-3/">作者主页</a>
     </div>
 
+    <!-- 背景音乐 -->
     <audio id="backgroundMusic" src="yyds.mp3" loop></audio>
 
     <script>
@@ -200,7 +206,7 @@
         const backgroundMusic = document.getElementById('backgroundMusic');
         const particlesContainer = document.getElementById('particles');
 
-       // 音乐播放控制
+        // 音乐播放控制
         musicButton.addEventListener('click', () => {
             if (backgroundMusic.paused) {
                 backgroundMusic.play();
