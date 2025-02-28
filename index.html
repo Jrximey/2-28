@@ -146,12 +146,42 @@
                 opacity: 0;
             }
         }
+
+        /* ins风格小球球样式 */
+        .ball {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, rgba(255, 200, 200, 0.6), rgba(200, 200, 255, 0.6));
+            border-radius: 50%;
+            position: absolute;
+            top: calc(50% - 150px); /* 调整位置 */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
     </style>
 </head>
 <body>
 
     <!-- 动态粒子背景 -->
     <div class="particles" id="particles"></div>
+
+    <!-- ins风格小球球 -->
+    <div class="ball"></div>
 
     <!-- 音乐按钮 -->
     <div class="music-button" id="musicButton">
@@ -219,4 +249,3 @@
 
 </body>
 </html>
-只在时钟上方设计一个Q弹的合适大小的ins风格半透明渐变浅色小球球。而且网页的其他元素和布局不变。给出完整代码。
