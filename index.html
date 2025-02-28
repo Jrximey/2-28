@@ -23,7 +23,6 @@
 
         /* 时钟样式 */
         .clock {
-            position: relative; /* 添加相对定位，以便小球绝对定位 */
             background-color: rgba(255, 255, 255, 0.8);
             border: 1px solid rgba(219, 219, 219, 0.8);
             border-radius: 8px;
@@ -38,29 +37,6 @@
 
         .clock:active {
             transform: rotate(-5deg) scale(0.98);
-        }
-
-        /* 小球样式 */
-        .ball {
-            position: absolute;
-            top: -50px; /* 调整小球的位置 */
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px; /* 调整小球的大小 */
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(255, 230, 230, 0.7), rgba(230, 245, 255, 0.7)); /* 半透明渐变 */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            animation: bounce 2s infinite ease-in-out; /* 添加弹跳动画 */
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            50% {
-                transform: translateX(-50%) translateY(-10px);
-            }
         }
 
         /* 导航栏样式 */
@@ -183,10 +159,7 @@
     </div>
 
     <!-- 数字时钟 -->
-    <div class="clock" id="clock">
-        <div class="ball"></div> <!-- Q弹小球球 -->
-        00:00:00
-    </div>
+    <div class="clock" id="clock">00:00:00</div>
 
     <!-- 导航栏 -->
     <div class="navbar">
@@ -246,3 +219,4 @@
 
 </body>
 </html>
+只在时钟上方设计一个Q弹的合适大小的ins风格半透明渐变浅色小球球。而且网页的其他元素和布局不变。给出完整代码。
